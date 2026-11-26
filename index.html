@@ -88,11 +88,11 @@
 .cert-list span{border:1px solid var(--line);background:#faf9f5;border-radius:30px;padding:8px 10px;font-size:10px;color:#555950}
 .about-note{margin-top:24px;padding:18px 20px;background:var(--lime);border-radius:16px;font-size:12px;line-height:1.5;color:var(--ink)}
 @media(max-width:900px){.about-top{grid-template-columns:1fr;gap:25px}.about-grid{grid-template-columns:1fr}.about-side{grid-template-columns:1fr 1fr}.about-side .about-block:first-child{grid-column:1/-1}}
-@media(max-width:600px){#about{padding-top:75px;padding-bottom:75px}.about-top{padding-bottom:35px}#about .about h2{font-size:clamp(48px,14vw,70px)}.about-grid{margin-top:22px;gap:16px}.about-card{padding:21px}.about-side{grid-template-columns:1fr}.about-side .about-block:first-child{grid-column:auto}.experience-item{grid-template-columns:1fr;gap:7px;padding:18px 0}.experience-date{padding:0}.about-card-head{margin-bottom:12px}}
+@media(max-width:600px){#about{padding-top:88px;padding-bottom:75px}.about-top{padding-bottom:35px}#about .about h2{font-size:clamp(48px,14vw,70px)}.about-grid{margin-top:22px;gap:16px}.about-card{padding:21px}.about-side{grid-template-columns:1fr}.about-side .about-block:first-child{grid-column:auto}.experience-item{grid-template-columns:1fr;gap:7px;padding:18px 0}.experience-date{padding:0}.about-card-head{margin-bottom:12px}}
 
 
 /* ABOUT — Dark navy + lime contrast treatment */
-#about{background:#101b35;color:#f5f6f2;padding:104px 5vw 112px;max-width:none;margin:0}
+#about{background:#101b35;color:#f5f6f2;padding:132px 5vw 112px;width:auto;max-width:none;position:relative;left:auto;margin-left:0;box-sizing:border-box;box-shadow:0 0 0 100vmax #101b35;clip-path:inset(0 -100vmax)}
 #about .about-top{border-bottom:1px solid #34415b}
 #about .about-kicker{color:#b6c0d1}
 #about .about-kicker:before{background:#d9f36a}
@@ -102,7 +102,7 @@
 #about .about-intro strong{color:#fff}
 #about .about-focus span{background:#192846;border-color:#40506b;color:#e7ebf2}
 #about .about-focus span:first-child{background:#d9f36a;color:#101b35;border-color:#d9f36a}
-#about .about-grid{max-width:1320px;margin-left:auto;margin-right:auto}
+#about>.about,#about>.about-grid{width:100%;max-width:1320px;margin-left:auto;margin-right:auto}#about .about-grid{max-width:1320px;margin-left:auto;margin-right:auto}
 #about .about-card,
 #about .about-side .about-block{background:#172541;border:1px solid #34435f;box-shadow:0 12px 34px #07112640}
 #about .about-card-head h3,
@@ -123,7 +123,49 @@
 #about .about-note{background:#d9f36a;color:#101b35}
 @media(max-width:600px){#about{padding:76px 5vw 80px}}
 
-</style></head><body>
+
+/* FIX ABOUT: full-bleed section + consistent content width */
+#about{margin-top:clamp(64px,7vw,104px)!important}
+@media(max-width:600px){#about{margin-top:48px!important}}
+
+#about{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:clamp(64px,8vw,108px) 5vw clamp(72px,9vw,116px);
+  overflow:visible;
+}
+#about .about,
+#about .about-grid{
+  width:min(1320px,100%);
+  max-width:1320px;
+  margin-left:auto;
+  margin-right:auto;
+}
+#about .about-top{gap:clamp(28px,5vw,76px); padding-bottom:clamp(32px,5vw,56px)}
+#about .about-grid{grid-template-columns:minmax(0,1.35fr) minmax(300px,.75fr); gap:24px; margin-top:34px; align-items:start}
+#about .about-card{min-width:0; padding:clamp(22px,2.4vw,32px)}
+#about .about-side{min-width:0}
+#about .experience-item{grid-template-columns:minmax(112px,145px) minmax(0,1fr); gap:20px; align-items:start}
+#about .experience-item h4{line-height:1.2}
+#about .experience-item p{max-width:none}
+#about .about-card-head span{white-space:nowrap}
+@media(max-width:900px){
+  #about{padding-left:5vw;padding-right:5vw}
+  #about .about-grid{grid-template-columns:1fr}
+  #about .about-side{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #about .about-side .about-block:first-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  #about{padding:68px 5vw 76px}
+  #about .about-grid{margin-top:24px;gap:16px}
+  #about .about-card{padding:20px}
+  #about .experience-item{grid-template-columns:1fr;gap:6px;padding:18px 0}
+  #about .about-side{grid-template-columns:1fr}
+  #about .about-side .about-block:first-child{grid-column:auto}
+  #about .about-card-head{align-items:flex-start;flex-direction:column;gap:10px}
+}
+ .contact .whatsapp-link{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;border:0;border-radius:999px;background:#d9f36a;color:#101b35;font-weight:700;font-size:14px;text-decoration:none;margin-bottom:22px}.contact .social-links{display:flex;gap:20px;flex-wrap:wrap}.contact .social-links a{display:inline-block}</style></head><body>
 <header><a class="logo" href="#">F<span style="color:var(--blue)">.</span>F</a><nav><a href="#work">Proyectos</a><a href="#about">About</a><a href="#contact">Contacto</a></nav><span class="status">Product Designer · Lima, Perú</span></header>
 <main class="wrap"><section class="hero"><div><div class="eyebrow">Portfolio · 2026 / Product Design</div><h1>Diseño para<br><em>personas.</em></h1><a class="cta" href="#work">Explorar proyectos ↘</a></div><p class="intro">Soy Fiorella Fernandini, Product Designer. Conecto necesidades reales de las personas con experiencias digitales claras, útiles y consistentes.</p></section></main>
 <div class="ticker">PRODUCT THINKING ✳ UX / UI ✳ DIGITAL EXPERIENCES ✳ DESIGN SYSTEMS ✳ PRODUCT THINKING ✳</div>
@@ -192,7 +234,7 @@
     </aside>
   </div>
 </section>
-<section class="wrap contact" id="contact"><div><div class="eyebrow">03 / Contact</div><h2>¿Creamos algo<br><em>con sentido?</em></h2></div><div><a href="https://www.linkedin.com/in/fiofernandini/" target="_blank" rel="noopener">LinkedIn ↗</a>　<a href="https://www.behance.net/fiofernandini" target="_blank" rel="noopener">Behance ↗</a></div></section>
+<section class="wrap contact" id="contact"><div><div class="eyebrow">03 / Contact</div><h2>¿Creamos algo<br><em>con sentido?</em></h2></div><div class="contact-links"><a class="whatsapp-link" href="https://wa.me/51993049792" target="_blank" rel="noopener noreferrer" aria-label="Escríbeme por WhatsApp">Escríbeme por WhatsApp ↗</a><div class="social-links"><a href="https://www.linkedin.com/in/fiofernandini/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>　<a href="https://www.behance.net/fiofernandini" target="_blank" rel="noopener noreferrer">Behance ↗</a></div></div></section>
 <footer class="wrap"><span>© 2026 Fiorella Fernandini</span><span>Diseñado con intención · Lima, Perú</span><span>Lima, Perú</span></footer></main>
 <div class="modal" id="modal" aria-hidden="true"><div class="panel" role="dialog" aria-modal="true"><div class="modalbar"><span class="logo">F<span style="color:var(--blue)">.</span>F <small style="font-size:10px;color:#777;font-weight:400"> / PROJECT DETAIL</small></span><button class="close" id="close" aria-label="Cerrar">×</button></div><div class="detail"><div><div class="eyebrow" id="kicker"></div><h2 id="title"></h2><div id="subtitle" class="focus"></div></div><div><p id="desc"></p><div class="focus" id="focus"></div><div class="actions"><a id="pdf" href="#" target="_blank" rel="noopener">Abrir PDF original ↗</a><button id="back">Volver a proyectos</button></div></div></div><div class="full"><img id="fullimg" alt=""></div></div></div>
 <script>
