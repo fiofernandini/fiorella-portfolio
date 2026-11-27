@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6258f5">
+<meta name="description" content="Caso de estudio de Tsana: rediseño y mejora continua de una plataforma de teleconsultas médicas. Product Design, experiencia digital y salud.">
+<title>Tsana — Caso de estudio | Fiorella Fernandini</title>
+<style>
+:root{--violet:#6258f5;--violet2:#827aff;--ink:#171735;--muted:#66677f;--pale:#f2f1ff;--pale2:#e8e6ff;--line:#e6e5f2;--dark:#17172f;--white:#fff;--green:#25b978}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#fff}
+.brand{font-weight:850;font-size:25px;letter-spacing:-1.4px;color:var(--violet)}.brand span{color:var(--ink);font-weight:500;font-size:12px;letter-spacing:1.5px;margin-left:12px}
+.back{font-size:13px;color:#4d4c69;font-weight:650}.back:hover{color:var(--violet)}
+.hero{background:linear-gradient(135deg,#f5f4ff 0%,#ebe9ff 58%,#dedbff 100%);padding:78px 0 72px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr  .92fr;gap:50px;align-items:center}
+.kicker,.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--violet)}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-3.8px;margin:18px 0 22px;max-width:650px}
+.lead{font-size:19px;color:#484866;max-width:560px;margin:0 0 24px}.hero-note{font-size:14px;color:#5d5c7b;max-width:500px}
+.hero-media{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
+.hero-phone{width:min(100%,360px);filter:drop-shadow(0 28px 38px rgba(45,38,120,.2));}
+.hero-phone img{width:100%;height:auto;display:block;background:transparent}
+.hero-tag{position:absolute;bottom:22px;left:0;background:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 12px 30px #28207820;font-size:12px;font-weight:750;color:#4c4b72}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d7f4;border-top:1px solid #d9d7f4;border-bottom:1px solid #d9d7f4}
+.meta div{background:#fff;padding:22px 28px}.meta small{display:block;text-transform:uppercase;letter-spacing:1.5px;color:#8887a0;font-size:10px;font-weight:800;margin-bottom:5px}.meta strong{font-size:14px}
+section{padding:94px 0}.section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;margin-bottom:42px;align-items:start}
+.num{color:var(--violet);font-size:11px;letter-spacing:2px;font-weight:850}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-1.8px;margin:9px 0 15px}
+.section-intro{font-size:16px;color:var(--muted);max-width:690px;margin:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{background:#f7f7fc;border:1px solid var(--line);border-radius:18px;padding:28px}
+.panel h3{font-size:17px;margin:0 0 10px}.panel p{font-size:14px;color:#65657d;margin:0}
+.dark-panel{background:var(--dark);color:#fff;border-radius:22px;padding:34px}.dark-panel p{color:#d1d0e5}
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{background:var(--pale);border-radius:16px;padding:24px;min-height:180px}
+.quote b{font-size:14px;color:var(--violet);display:block;margin-bottom:13px}.quote p{font-size:15px;color:#42425e;margin:0}
+.insight{margin-top:18px;padding:22px 26px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--violet);border-radius:12px;color:#45445f}
+.decision-list{display:grid;gap:14px}
+.decision{display:grid;grid-template-columns:64px 1fr 1.2fr;gap:20px;align-items:start;padding:23px 0;border-bottom:1px solid var(--line)}
+.decision .n{font-size:25px;font-weight:850;color:var(--violet)}.decision h3{font-size:17px;margin:0 0 5px}.decision p{font-size:14px;color:var(--muted);margin:0}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.shot{background:#f6f5ff;border:1px solid var(--line);border-radius:20px;padding:18px;overflow:hidden}
+.shot img{width:100%;height:auto;display:block;object-fit:contain;border-radius:12px;background:transparent}
+.shot figcaption{padding:16px 4px 4px}.shot figcaption b{display:block;font-size:14px;margin-bottom:4px}.shot figcaption span{font-size:12px;color:var(--muted)}
+.shot.wide{grid-column:1/-1}.shot.wide img{max-height:760px;object-fit:contain;background:#fff}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.flow div{background:#f3f2ff;border-radius:15px;padding:20px}.flow small{font-size:10px;color:var(--violet);font-weight:850;letter-spacing:1px}.flow b{display:block;font-size:15px;margin:8px 0 5px}.flow p{font-size:12px;color:#686780;margin:0}
+.cross{background:#f4f3ff}
+.cross-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.cross-grid img{width:100%;height:auto;border-radius:16px;box-shadow:0 18px 42px #302b6b18}
+.cross-copy p{color:var(--muted);font-size:15px}
+.balance{background:var(--dark);color:#fff}.balance .section-intro{color:#c9c8df}
+.balance-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}
+.balance-card{border:1px solid #44435f;background:#22223f;border-radius:18px;padding:26px}.balance-card h3{margin:0 0 10px;font-size:17px}.balance-card p{margin:0;color:#d0cfe3;font-size:14px}
+.footer{padding:38px 0;background:#111126;color:#bdbbd6;font-size:12px}.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer b{color:#fff}
+@media(max-width:800px){.wrap{width:min(100% - 32px,600px)}.hero{padding:52px 0}.hero-grid,.section-head,.cross-grid{grid-template-columns:1fr;gap:28px}.hero-media{min-height:0}.hero-phone{width:min(78%,310px)}.hero-tag{left:2px;bottom:8px}.meta{grid-template-columns:1fr}.meta div{padding:15px 20px}section{padding:68px 0}.quote-grid{grid-template-columns:1fr}.two-col,.gallery,.balance-grid{grid-template-columns:1fr}.shot.wide{grid-column:auto}.decision{grid-template-columns:42px 1fr;gap:12px}.decision p{grid-column:2}.flow{grid-template-columns:1fr 1fr}h1{letter-spacing:-2px}}
+@media(max-width:440px){.flow{grid-template-columns:1fr}.topbar{height:62px}.brand{font-size:22px}.brand span{font-size:10px}.back{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap" style="display:flex;align-items:center;justify-content:space-between"><a class="brand" href="../index.html">tsana<span>CASE STUDY</span></a><a class="back" href="../index.html">← Volver al portafolio</a></div></header>
+<main>
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="kicker">Product design · Salud digital · Perú</div>
+<h1>Hacer más simple el acceso a una consulta médica.</h1>
+<p class="lead">Rediseño y mejora continua de Tsana, la plataforma de teleconsultas médicas respaldada por Pacífico Salud.</p>
+<p class="hero-note">Claridad para entender el servicio. Menos fricción para iniciar la atención.</p>
+</div>
+<div class="hero-media">
+<div class="hero-phone"><img src="assets/home-mobile.webp" alt="Pantalla móvil de inicio de Tsana con acceso a consulta médica virtual"></div>
+<div class="hero-tag">Una experiencia de atención inmediata, de principio a fin.</div>
+</div>
+</div>
+</section>
+<div class="wrap meta">
+<div><small>Mi rol</small><strong>Product Designer</strong></div>
+<div><small>Producto</small><strong>Web responsive · Telemedicina</strong></div>
+<div><small>Enfoque</small><strong>Discovery · UX/UI · Design System</strong></div>
+</div>
+
+<section>
+<div class="wrap">
+<div class="section-head"><div><div class="num">01 / CONTEXTO Y APORTE</div><h2>Un servicio inmediato. Una experiencia por simplificar.</h2></div><p class="section-intro">Tsana conecta a personas y familias peruanas con medicina general y pediatría por videollamada, sin agendar y todos los días. Tras la consulta, envía recetas, indicaciones y certificados por correo.</p></div>
+<div class="two-col">
+<div class="panel"><h3>El desafío de producto</h3><p>Explicar con claridad qué es Tsana, mejorar la activación y simplificar los recorridos de ingreso, atención y posconsulta.</p></div>
+<div class="panel"><h3>Mi aporte como Product Designer</h3><p>Conecté señales de investigación y feedback con decisiones de interfaz; diseñé pantallas de alta fidelidad, microinteracciones y estados, y acompañé la implementación con handoff y QA visual.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#fafaff">
+<div class="wrap">
+<div class="section-head"><div><div class="num">02 / INVESTIGACIÓN Y EVIDENCIAS</div><h2>Escuchar antes de simplificar.</h2></div><p class="section-intro">Las entrevistas y el análisis de feedback aportaron señales sobre confianza, fricciones de ingreso y preferencias. La participación en discovery ligero conectó estos insumos con el trabajo de interfaz.</p></div>
+<div class="quote-grid">
+<div class="quote"><b>01 · Confianza y rapidez</b><p>“Me atendí rápido” / “Respaldo de clínica”. El valor está en recibir atención oportuna con respaldo.</p></div>
+<div class="quote"><b>02 · Fricción de ingreso</b><p>“Me marean tantos datos”. Las dudas sobre qué es Tsana y los pasos previos dificultan el recorrido.</p></div>
+<div class="quote"><b>03 · Preferencias</b><p>Planes mensuales e imágenes de médicos reales ayudan a transmitir confianza.</p></div>
+</div>
+<div class="insight"><b>Insight clave</b> · Explicar en una línea qué es Tsana y llevar al inicio de atención en un clic puede mejorar la intención de uso. Se plantea como hipótesis de diseño, no como resultado medido.</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><div><div class="num">03 / DE LA SEÑAL A LA DECISIÓN</div><h2>Convertir fricciones en decisiones concretas.</h2></div><p class="section-intro">La respuesta de diseño se organizó alrededor de tres momentos: comprender el servicio, encontrar rápidamente la acción principal y reducir la carga antes de llegar al médico.</p></div>
+<div class="decision-list">
+<div class="decision"><div class="n">01</div><div><h3>Hacer comprensible la propuesta</h3></div><p>Hero claro con CTA directo, explicación en tres pasos y cards de valor con iconografía consistente.</p></div>
+<div class="decision"><div class="n">02</div><div><h3>Priorizar el inicio de atención</h3></div><p>Consulta médica virtual como módulo principal del Home; “Mi plan” y “Mis perfiles” para gestionar el servicio y la familia.</p></div>
+<div class="decision"><div class="n">03</div><div><h3>Reducir la carga del ingreso</h3></div><p>Interfaz compacta, validaciones en vivo, errores claros, CTA único y microcopy que explica por qué se solicita cada dato.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#f7f6ff">
+<div class="wrap">
+<div class="section-head"><div><div class="num">04 / EXPERIENCIA DISEÑADA</div><h2>De entender el servicio a recibir atención.</h2></div><p class="section-intro">Pantallas de alta fidelidad que materializan las decisiones del recorrido. El inicio concentra la acción principal; la consulta mantiene una secuencia clara hasta la posatención.</p></div>
+<div class="gallery">
+<figure class="shot"><img src="assets/home-mobile.webp" alt="Home móvil de Tsana"><figcaption><b>A / Entender el servicio</b><span>Una propuesta directa y una acción principal visible desde el primer pantallazo.</span></figcaption></figure>
+<figure class="shot"><img src="assets/plans-mobile.webp" alt="Selección de planes Tsana"><figcaption><b>B / Elegir un plan</b><span>Comparación de alternativas con beneficios y condiciones visibles.</span></figcaption></figure>
+<figure class="shot"><img src="assets/patient-selection.webp" alt="Selección de paciente"><figcaption><b>C / Elegir a quién atender</b><span>Perfiles familiares presentados como opciones claras y seleccionables.</span></figcaption></figure>
+<figure class="shot"><img src="assets/consultation-summary.webp" alt="Resumen de consulta médica"><figcaption><b>D / Confirmar la solicitud</b><span>Resumen de paciente y especialidad antes de buscar doctor.</span></figcaption></figure>
+<figure class="shot"><img src="assets/incoming-call.webp" alt="Pantalla de llamada entrante de Tsana"><figcaption><b>E / Conectar con el médico</b><span>Una pantalla de llamada que prioriza la decisión de contestar o cancelar.</span></figcaption></figure>
+<figure class="shot"><img src="assets/video-consultation.webp" alt="Videoconsulta médica en Tsana"><figcaption><b>F / Recibir atención</b><span>La videollamada como núcleo de la experiencia de telemedicina.</span></figcaption></figure>
+<figure class="shot wide"><img src="assets/thank-you.webp" alt="Pantalla de cierre de atención"><figcaption><b>G / Cerrar el recorrido</b><span>Confirmación de atención y orientación sobre los resultados enviados por correo.</span></figcaption></figure>
+</div>
+<div class="flow">
+<div><small>01 · DESCUBRIR</small><b>Entender Tsana</b><p>Propuesta, beneficios y planes.</p></div>
+<div><small>02 · INGRESAR</small><b>Elegir y confirmar</b><p>Paciente, especialidad y resumen.</p></div>
+<div><small>03 · ATENDERSE</small><b>Conectar</b><p>Llamada y videconsulta médica.</p></div>
+<div><small>04 · CONTINUAR</small><b>Posconsulta</b><p>Resultados y orientación por correo.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><div><div class="num">05 / CONTINUIDAD CROSS-CANAL</div><h2>Una experiencia coherente, dentro y fuera del producto.</h2></div><p class="section-intro">El primer contacto también es parte de la experiencia. Se trabajó con Growth en copys consistentes para WhatsApp y email, aclarando qué es Tsana y reduciendo dudas sobre el origen del mensaje.</p></div>
+<div class="cross-grid">
+<div class="cross-copy"><h3>Activación con contexto y claridad</h3><p>Los mensajes presentan el servicio de teleconsultas médicas inmediatas, explican el beneficio y llevan a activar la cuenta en un clic.</p><h3>La identidad se extiende a los contenidos</h3><p>La comunidad y las piezas de contenido mantienen una expresión visual consistente con la marca, acompañando la relación más allá de la consulta.</p></div>
+<div><img src="assets/whatsapp-welcome.webp" alt="Mensaje de bienvenida y activación de Tsana en WhatsApp"></div>
+</div>
+<div class="gallery" style="margin-top:24px">
+<figure class="shot"><img src="assets/community-email.webp" alt="Email de comunidad de mamás Tsana"><figcaption><b>Comunidad / Email</b><span>Contenido y comunidad como extensión visual de la marca.</span></figcaption></figure>
+<figure class="shot"><img src="assets/brand-content.webp" alt="Pieza de contenido de Tsana sobre crianza y cuidados"><figcaption><b>Contenido / Extensión visual</b><span>Una identidad reconocible en piezas informativas y de acompañamiento.</span></figcaption></figure>
+<figure class="shot"><img src="assets/whatsapp-activation.webp" alt="Mensaje de activación de cuenta de Tsana en WhatsApp"><figcaption><b>Activación / WhatsApp</b><span>Una llamada a la acción directa para completar el acceso al servicio.</span></figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="balance">
+<div class="wrap">
+<div class="section-head"><div><div class="num" style="color:#aaa5ff">06 / BALANCE Y PRÓXIMOS PASOS</div><h2>Diseño entregado. Impacto por validar.</h2></div><p class="section-intro">El valor del caso está en conectar señales de usuarios con decisiones concretas de interfaz y acompañar su implementación.</p></div>
+<div class="balance-grid">
+<div class="balance-card"><h3>Lo que aporté</h3><p>Una experiencia más clara y una base consistente: pantallas hi-fi, microinteracciones, cobertura de estados y errores, evolución del Design System, handoff y QA visual.</p></div>
+<div class="balance-card"><h3>Lo que falta medir</h3><p>La mejora de activación es un objetivo, no una cifra. El material disponible no incluye métricas de impacto; no permite afirmar un incremento de conversión ni una reducción del abandono.</p></div>
+</div>
+<div style="margin-top:28px;padding:22px 26px;border:1px solid #44435f;border-radius:16px">
+<div class="kicker" style="color:#aaa5ff">Siguiente paso sugerido</div>
+<p style="margin:8px 0 0;color:#e1e0f1">Validar la comprensión del servicio e instrumentar el embudo: visita → inicio de atención → solicitud completada. Observar el abandono por paso para priorizar la siguiente iteración.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><span><b>Fiorella Fernandini</b> · Product Designer</span><a href="../index.html">← Volver al portafolio</a><span>TSANA · Salud digital · Perú</span></div></footer>
+</body></html>
